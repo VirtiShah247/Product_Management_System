@@ -11,7 +11,6 @@ public class TransactionServiceImpl implements TransactionService{
 	public List<Transaction> viewCustomerTransactions(String email, List<Transaction> transactions)	throws TransactionException {
 		List<Transaction> myTransactions = new ArrayList<>();
 		List<Transaction> tFile = FileExists.readTransaction();
-		// System.out.println("Transaction service fun --- " + tFile);
 		boolean flag = false;
 		if(tFile != null && !tFile.isEmpty()){
 			for (Transaction tr : tFile) {
@@ -32,7 +31,6 @@ public class TransactionServiceImpl implements TransactionService{
 
 	//
 	public List<Transaction> viewAllTransactions(List<Transaction> transactions) throws TransactionException {
-		// TODO Auto-generated method stub
 		List<Transaction> tFile = FileExists.readTransaction();
 		if(tFile != null && !tFile.isEmpty()) {
 			return tFile;

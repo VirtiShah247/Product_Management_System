@@ -24,13 +24,11 @@ public class User implements Serializable{
 		this.address = address;
 		this.email = email;
 		if (salt == null || salt.isEmpty()) {
-			// New user - generate salt and hash password
 			this.salt = generateSalt();
 			this.password = hashPassword(password, this.salt);
 		} else {
-			// Existing user from file - password is already hashed
 			this.salt = salt;
-			this.password = password; // Don't hash again
+			this.password = password;
 		}
 	}
 	private String generateSalt() {

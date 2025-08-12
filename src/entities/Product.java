@@ -68,11 +68,7 @@ public class Product implements Serializable{
 
 	//
 	public String toString() {
-		// System.out.println("To string is called----");
 		return id + " " + name + " " + qty + " " + price + " " + category;
-		
-		// return "Product [id=" + id + ", name=" + name + ", qty=" + qty + ", price=" + price + ", category=" + category
-		// 		+ "]";
 	}
 
 	//

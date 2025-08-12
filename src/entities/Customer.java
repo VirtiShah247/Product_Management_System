@@ -1,7 +1,6 @@
 package entities;
 
 import java.io.*;
-// write a code for Customer class with Private double walletBalance. It has constructor to store data, getter and setter method of each data and toString method which returns all this data like username=username
 
 public class Customer extends User implements Serializable {
 
@@ -22,11 +21,6 @@ public class Customer extends User implements Serializable {
 
 	//
 	public String toString() {
-		// return "Customer [email=" + getEmail()
-		// + ", username=" + getUsername() + ", address=" + getAddress() + ",
-		// walletBalance=" + walletBalance + ", password=" + getPassword()
-		// + ", ]";
-		// System.out.println("addresss ---- " + getAddress());
 		return getEmail() + " " + getUsername() + " " + getPassword() + " " + getSalt() + " " + walletBalance + " " + getAddress();
 	}
 

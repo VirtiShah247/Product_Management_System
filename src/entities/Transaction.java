@@ -14,10 +14,6 @@ public class Transaction implements Serializable {
 	private double price;
 	private double total;
 	private LocalDate dt;
-	
-	// public Transaction() {
-		
-	// }
 
 
 	public String getpName() {
@@ -103,8 +99,6 @@ public class Transaction implements Serializable {
 
 	//
 	public String toString() {
-		// return "Transaction [username=" + getUsername() + ", email=" + getEmail() + ", productId=" + getProductId() + ", pName="
-		// 		+ getpName() + ", qty=" + getQty() + ", price=" + getPrice() + ", total=" + getTotal() + ", dt=" + getDt() + ", ]";
 		return getUsername() + " " + getEmail() + " " + getProductId() + " "
 				+ getpName() + " " + getQty() + " " + getPrice() + " " + getTotal() + " " + getDt();
 	}

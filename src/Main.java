@@ -102,7 +102,6 @@ public class Main {
 				return true;
 			} else {
 				return false;
-				// throw new InvalidDetailsException("Invalid Admin Credentials");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -125,7 +124,6 @@ public class Main {
 				System.out.println(e.getMessage());
 				sc.next();
 				throw new IllegalInputException(e.getMessage());
-				// return;
 			}
 			double price = 0;
 			try {
@@ -135,7 +133,6 @@ public class Main {
 				System.out.println(e.getMessage());
 				sc.next();
 				throw new IllegalInputException(e.getMessage());
-				// return;
 			}
 
 			System.out.println("Enter the product category");
@@ -253,7 +250,6 @@ public class Main {
 			String[] customerParts = customer.getValue().toString().split(" ");
 			String email = customerParts[0];
 			String username = customerParts[1];
-			// String password = customerParts[2];
 			double walletBalance = Double.parseDouble(customerParts[3]);
 			String address = customerParts[4];
 			System.out.println("Customer- " + username);
@@ -424,7 +420,6 @@ public class Main {
 
 			CustomerService cusService = new CustomerServiceImpl();
 			cusService.signUp(cus);
-			// System.out.println("cus customerSignUp --- " + cus);
 			System.out.println("customer has Succefully sign up");
 		} catch (InputMismatchException e) {
 			System.out.println("Invalid input.Please enter a valid type input.");
@@ -527,7 +522,6 @@ public class Main {
 	public static void customerViewCustomerTransactions(String email, List<Transaction> transactions,
 			TransactionService trnsactionService) throws TransactionException {
 		List<Transaction> myTransactions = trnsactionService.viewCustomerTransactions(email, transactions);
-		// List<Transaction> tFile = FileExists.readTransaction();
 		for (Transaction tr : myTransactions) {
 			String[] transactionParts = tr.toString().split(" ");
 			String username = transactionParts[0];
@@ -556,14 +550,8 @@ public class Main {
 		File f = new File("src", "database");
 		f.mkdir();
 		Map<Integer, Product> products = FileExists.productFile();
-		// System.out.println("prod:: " + products);
 		Map<String, Customer> customers = FileExists.customerFile();
-		// System.out.println("cust:: " + customers);
 		List<Transaction> transactions = FileExists.transactionFile();
-		// System.out.println("tran:: " + transactions);
-		// System.out.println(products.size());
-		// System.out.println(customers.size());
-		// System.out.println(transactions.size());
 
 		Scanner sc = new Scanner(System.in);
 
@@ -604,25 +592,6 @@ public class Main {
 
 			System.out.println(e.getMessage());
 		}
-		// finally {
-		// // serialization (finally always executed)
-		// try {
-		// ObjectOutputStream poos = new ObjectOutputStream(new
-		// FileOutputStream("Product.txt"));
-		// poos.writeObject(products);
-		// ObjectOutputStream coos = new ObjectOutputStream(new
-		// FileOutputStream("Customer.txt"));
-		// coos.writeObject(customers);
-
-		// ObjectOutputStream toos = new ObjectOutputStream(new
-		// FileOutputStream("Transactions.txt"));
-		// toos.writeObject(transactions);
-		// // System.out.println("serialized..........");
-		// } catch (Exception e) {
-		// // TODO: handle exception
-		// System.out.println(e.getMessage());
-		// }
-		// }
 
 	}
 

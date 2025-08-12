@@ -22,17 +22,7 @@ public class ProductServicesImpl implements ProductService {
 
 	//
 	public void viewAllProducts() throws ProductException {
-
-		// if (products != null && products.size() > 0) {
-		// for (Map.Entry<Integer, Product> product : products.entrySet()) {
-		// System.out.println(product.getValue());
-		// }
-
-		// } else {
-		// throw new ProductException("Product List is empty");
-		// }
 		Map<Integer, Product> pData = FileExists.readProduct();
-		// System.out.println("prodcut" + pData);
 		if(pData != null && !pData.isEmpty()){
 			for (Map.Entry<Integer, Product> product : pData.entrySet()) {
 				String[] productParts = product.getValue().toString().split(" ");
@@ -58,7 +48,6 @@ public class ProductServicesImpl implements ProductService {
 	//
 	public void deleteProduct(int id) throws ProductException {
 
-		// System.out.println(products);
 		Map<Integer, Product> pData = FileExists.readProduct();
 		if (pData != null && !pData.isEmpty()) {
 			if (pData.containsKey(id)) {

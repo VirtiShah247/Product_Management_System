@@ -2,7 +2,6 @@ package service;
 
 import java.util.*;
 import java.io.*;
-// import java.text.ParseException;
 import java.time.LocalDate;
 import entities.*;
 import exceptions.*;
@@ -12,7 +11,6 @@ import utility.FileExists;
 public class CustomerServiceImpl implements CustomerService {
 
 	public void signUp(Customer cus) throws DuplicateDataException, CustomerException {
-		// System.out.println("cus signup -- " + cus);
 		Map<String, Customer> cData = FileExists.readCustomer();
 		if (cData != null && !cData.isEmpty() && cData.containsKey(cus.getEmail())) {
 			throw new DuplicateDataException("Customer already exists , please login");	
@@ -29,13 +27,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public boolean login(String email,String password) throws InvalidDetailsException, CustomerException {
 		Map<String, Customer> cData = FileExists.readCustomer();
 		if (cData != null && !cData.isEmpty()) {
-			// System.out.println("cData.get(email) ----- " + cData.get(email).getPassword());
-			// System.out.println("passowrd ---- " + password);
-			
 			if (cData.containsKey(email)) {
 				String salt = cData.get(email).getSalt();
 				if (cData.get(email).verifyPassword(password, salt)) {
-					// System.out.println("Customer has successfully login");
 					return true;
 				} else {
 					throw new CustomerException("Passwords do not match");
@@ -56,17 +50,14 @@ public class CustomerServiceImpl implements CustomerService {
 			throws InvalidDetailsException, ProductException, CustomerException, TransactionException {
 				Map<Integer, Product> pData = FileExists.readProduct();
 				Map<String, Customer> cData = FileExists.readCustomer();
-		// System.out.println("buy product start");		
 		if (pData.isEmpty())
 		{
 			throw new ProductException("Product list is empty");
 		}
 
 		if (pData != null && !pData.isEmpty() && pData.containsKey(id)) {
-			// System.out.println("product get email");
 	
 			Product prod = pData.get(id);
-			// System.out.println("prod -- " + prod);
 			if (prod.getQty() >= qty) {
 				
 				Customer cus = cData.get(email);
@@ -163,10 +154,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public Map<String, Customer> viewAllCustomers() throws ProductException, CustomerException {
 
 		Map<String, Customer> cData = FileExists.readCustomer();
-		// List<Customer> list = null;
 		if (cData != null && !cData.isEmpty()) {
-			// Collection<Customer> coll = cData.values();
-			// list = new ArrayList<>(coll);
 			return cData;
 		} else {
 			throw new ProductException("Sorry. There are no customers yet.");
